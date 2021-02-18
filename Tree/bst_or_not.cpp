@@ -49,7 +49,7 @@ bool isBSTutil(node*root,int max,int min)
    {
       return 0;
    }
-  return isBSTutil(root->left,root->data-1,min)&&isBSTutil(root->left,max,root->data+1);
+  return isBSTutil(root->left,root->data-1,min)&&isBSTutil(root->rightt,max,root->data+1);
 }
 bool isBST(node* root)
 {
