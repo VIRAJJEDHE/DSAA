@@ -41,12 +41,35 @@ void tree_input(node *root)
     if(x=='x')
     return;
 }
+void VerticalOrderUtil(node* root,map<int,vector<int>> &HdMap,int hd,int vd)
+{
+    if(root==NULL)
+    return;
+    
+        long long val=hd*10000+vd;
+        HdMap[val].push_back(root->data);
+        VerticalOrderUtil(root->left,HdMap,hd-1,vd+1);
+        VerticalOrderUtil(root->right,HdMap,hd+1,vd+1);
+}
+void VerticalOrder(node* root)
+{
+    map<int,vector<int>> HdMap;
+    int hd=0;
+    VerticalOrderUtil(root,HdMap,hd,0);
+     map<int,vector<int>>::iterator itr; 
+    cout << "\nThe map vertical order traversal is : "; 
+    for (itr = HdMap.begin(); itr != HdMap.end(); ++itr)
+    { 
+        for(int i=0;i<itr->second.size();i++)
+             cout<< itr->second[i]<<" ";
+    }    
+}
 int main()
 {
     cout<<"Enter the root Node:";
     cin>>x;
     node *root=newNode( x-'0');
     tree_input(root);
-    cout<<root->left->left->right->data;
+    VerticalOrder(root);
     return 0;
 }

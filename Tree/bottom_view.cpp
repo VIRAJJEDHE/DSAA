@@ -41,6 +41,7 @@ void tree_input(node *root)
     if(x=='x')
     return;
 }
+void BottomView()
 int main()
 {
     cout<<"Enter the root Node:";
