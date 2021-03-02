@@ -1,3 +1,4 @@
+// Question Link: https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -41,13 +42,35 @@ void tree_input(node *root)
     if(x=='x')
     return;
 }
-void BottomView()
+void BottomViewUtil(node* root,map<int,pair<int,int>> &HdMap,int hd,int vd)
+{
+    if(root==NULL)
+    return;
+        if(vd>HdMap[hd].second)    
+        {
+            HdMap[hd]={root->data,vd};
+        }    
+        BottomViewUtil(root->left,HdMap,hd-1,vd+1);
+        BottomViewUtil(root->right,HdMap,hd+1,vd+1);
+}
+void BottomView(node* root)
+{
+    map<int,pair<int,int>> HdMap;
+    int hd=0;
+    BottomViewUtil(root,HdMap,hd,0);
+     map<int,pair<int,int>>::iterator itr; 
+    cout << "\nThe map vertical order traversal is : "; 
+    for (auto itr: HdMap)
+    { 
+        cout<<itr.second.first<<" ";
+    }    
+}
 int main()
 {
     cout<<"Enter the root Node:";
     cin>>x;
     node *root=newNode( x-'0');
     tree_input(root);
-    cout<<root->left->left->right->data;
+    BottomView(root);
     return 0;
 }
