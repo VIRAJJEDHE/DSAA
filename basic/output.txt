@@ -1,0 +1,33 @@
+
+v 
+i 
+v i 
+r 
+v r 
+i r 
+v i r 
+a 
+v a 
+i a 
+v i a 
+r a 
+v r a 
+i r a 
+v i r a 
+j 
+v j 
+i j 
+v i j 
+r j 
+v r j 
+i r j 
+v i r j 
+a j 
+v a j 
+i a j 
+v i a j 
+r a j 
+v r a j 
+i r a j 
+v i r a j 
+
